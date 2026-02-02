@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //array modify and delete
+
+        var a=["Anand",28,"Male","software engineer"];
+
+        a[1]=32;  //update value
+        document.write(a,"<br>");
+        delete a[3];  //delete index value
+        document.write(a,"<br>");
+    </script>
+
+    <script>
+        //sorting and reverse
+        var b=["kalyani","amar","siddhi","bhushan","rushi"];
+        document.write(b,"<br>");
+        b.sort(); //a to z asc sorting
+        document.write(b,"<br>");
+        b.reverse();  //reverse
+        document.write(b,"<br>");
+    </script>
+
+    <script>
+        //pop and push
+
+        var c=["kalyani","amar","siddhi","bhushan","rushi"];
+        document.write(c,"<br>");
+        c.pop();
+        c.pop();
+        c.pop();
+        document.write(c,"<br>");
+        c.push("vaibhavi")
+        document.write(c,"<br>");
+    </script>
+
+    <script>
+        //shift and unshift
+        var d=["kalyani","amar","siddhi","bhushan","rushi"];
+        document.write(d,"<br>");
+        d.shift();
+        d.shift();
+
+        document.write(d,"<br>");
+        d.unshift("siddhi");
+        d.unshift("rushi");
+    </script>
+
+    <script>
+        //join and concat
+        var a=["kalyani","amar","siddhi","bhushan","rushi"];
+        var b=["namita","ujwal","chaaya","rohini","prasad"];
+        var x=["mayur","pranali","gaurav","madhvi"];
+
+        var c=a.concat(b,x);
+        document.write(c,"<br>");
+        var d=c.join("/");
+        document.write(d,"<br>");
+    </script>
+
+
+</body>
+</html>
