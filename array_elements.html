@@ -64,6 +64,29 @@
         document.write(d,"<br>");
     </script>
 
+    <script>
+        document.write("<h2>Slice Example</h2>");
+
+        var a=["kalyani0","amar1","siddhi2","bhushan3","rushi4","divya5","prasad6"];
+
+        document.write(a, "<br>");
+
+        var b = a.slice(4,6); //(start,end)
+
+        document.write(b,"<br>");
+    </script>
+
+    <script>
+        document.write("<h2>Splice Example</h2>");
+
+        var x=["kalyani0","amar1","siddhi2","bhushan3","rushi4","divya5","prasad6"];
+
+        x.splice(2,3,"rohit");  //(index, how many delete, "newvalue")
+
+        document.write(x,"<br>");
+
+
+    </script>
 
 </body>
 </html>
