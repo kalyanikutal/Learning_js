@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--Example 1-->
+    <h1>Change Text Using DOM</h1>
+
+    <h2 id="title">Old Heading</h2>
+    <button onclick="changeText()">Click Here to change text</button>
+
+     <!--script 1-->
+    <script>
+        function changecolor(){
+            document.getElementById('msg').style.color='purple';
+        }
+    </script>
+
+    <!--Example 2-->
+    <h1>Change Style Color Using DOM</h1>
+    <h2 id="msg">Welcome in FCT</h2>
+    <button onclick="changecolor()">Click here to change text Color</button>
+
+     <!--script 2-->
+    <script>
+        function changeText(){
+            document.getElementById('title').innerHTML = "New Heading";
+        }
+    </script>
+
+    <!--Example 3-->
+    <h1>Change image Using DOM</h1>
+    <img src="Images/fern-10014894_640.jpg" id="myImg" width="400"/>
+    <button onclick="changeImage()">click here to change image</button>
+
+     <!--script 3-->
+    <script>
+        function changeImage(){
+            document.getElementById('myImg').src="Images/music-9888488_640.jpg";
+        }
+    </script>
+
+    <!--Example 4-->
+    <h1>Input Form User</h1>
+    <input type="text" id="nameInput" placeholder="Enter Name"/>
+    <button onclick="showName()">Submit</button>
+    <h1 id="output"></h1>
+
+    <!--script 4-->
+    <script>
+        function showName(){
+            let name=document.getElementById('nameInput').value;
+
+            document.getElementById('output').innerHTML='hello welcome ' + name;
+        }
+    </script>
+
+
+    <!--Example 5-->
+    <h1>Delete line</h1>
+    <p id="deleteMe">A paragraph is a self-contained unit of writing, made of one or more sentences, that develops a single idea or topic, making text organized and easier to read by breaking it into logical sections, often starting on a new line or with an indent, and typically containing a topic sentence with supporting details and a conclusion. Paragraphs serve as building blocks, guiding readers through an author's thoughts by showing shifts in focus, time, or perspective, and are crucial for structuring essays, articles, and stories.</p>
+    <button onclick="removePara()">Remove</button>
+
+    <!--script 5-->
+    <script>
+        function removePara(){
+            document.getElementById('deleteMe').remove();
+        }
+    </script>
+
+    <!--Example 6-->
+    <p id="para1">change my font size</p>
+    <button onclick="increase()">+</button>
+    <button onclick="decrease()">-</button>
+    <button onclick="toggletheme()">Toggle Theme</button>
+
+    <h2>Welcome to my website</h2>
+    <p>A paragraph is a self-contained unit of writing, made of one or more sentences, that develops a single idea or topic, making text organized and easier to read by breaking it into logical sections, often starting on a new line or with an indent, and typically containing a topic sentence with supporting details and a conclusion. Paragraphs serve as building blocks, guiding readers through an author's thoughts by showing shifts in focus, time, or perspective, and are crucial for structuring essays, articles, and stories.</p>
+
+    <style>
+        body{
+            background-color: white;
+            color: black;
+        }
+        .dark-mode{
+            background-color: black;
+            color: white;
+        }
+    </style>
+    <script>
+        const toggletheme=() => document.body.classList.toggle("dark-mode");
+    </script>
+
+    <!--script 6-->
+    <script>
+        let size=16;
+        function increase(){
+            size++;
+            document.getElementById('para1').style.fontSize=size + 'px';
+        }
+        function decrease(){
+            size--;
+            document.getElementById('para1').style.fontSize=size + 'px';
+        }
+    </script>
+
+</body>
+</html>
