@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .clock_d{
+            font-family: 'Times New Roman', Times,serif;
+            color: blue;
+            justify-content: center;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Digital Clock</h1>
+    <h2 class="clock_d" id="clock"></h2>
+
+    <p id="msg">A paragraph is a self-contained unit of writing, a collection of sentences grouped around a single main idea or topic, used to organize text, break up long passages, and guide readers through an author's points. Key components include a topic sentence (expressing the main idea), supporting sentences (providing details, examples, or explanations), and often a concluding sentence. Paragraphs structure discourse, making longer texts more digestible and showing logical divisions in thought.</p>
+
+
+    <h1>Counter</h1>
+    <h3 id="count">0</h3>
+    <button onclick="startCounter()">Start</button>
+    <button onclick="stopCounter()">Stop</button>
+    <button onclick="resetCounter()">Reset</button>
+
+    <script>
+        let count = 0;
+        let counter = null ;
+        function startCounter(){
+            if(counter === null){
+                counter = setInterval(function(){
+                    count++;
+                    document.getElementById("count").innerHTML = count;
+                },1000);
+            }
+        }
+        function stopCounter(){
+            clearInterval(counter);
+            counter = null;
+        }
+        function resetCounter(){
+            clearInterval(counter);
+            counter = null;
+            count = 0 ;
+            document.getElementById("count").innerHTML = count;
+        }
+    </script>
+
+
+    <script>
+        setTimeout(function(){
+            document.getElementById("msg").innerHTML = "welcome in fct";
+        },10000)
+    </script>
+
+    <script>
+        function showTime(){
+            let now = new Date();
+            let time = now.toLocaleTimeString();
+            document.getElementById("clock").innerHTML = time;
+            setInterval(showTime,1000);
+        }
+        showTime();
+    </script>
+</body>
+</html>

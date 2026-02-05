@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <!-- Send a Message Box -->
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="col-md-4"></div>
+            <div class="card-body">
+                <h4 class="card-title mb-1">Contact Us</h4>
+                <h2 class="text-center mb-4"></h2>
+                <form id="contactform" class="p-4 border rounded" onsubmit="return validate()">
+                    <!--Name-->
+                    <div class="mb-1">
+                        <label class="form-label">Name:</label>
+                        <input type="text" class="form-control" id="name" placeholder="Your Name">
+                        <span class="text-danger" id="nameError"></span>
+                    </div>
+
+                    <!--Email-->
+                    <div class="mb-1">
+                        <label class="form-label">Email:</label>
+                        <input type="text" class="form-control" id="email" placeholder="Your Email">
+                        <span class="text-danger" id="emailError"></span>
+                    </div>
+
+                    <!--Mobile Number-->
+                    <div class="mb-1">
+                        <label class="form-label">Mobile Number:</label>
+                        <input type="text" class="form-control" id="mobile" placeholder="Your Mobile Number">
+                        <span class="text-danger" id="mobilenumberError"></span>
+
+                    </div>
+
+                    <!--Confirm Password-->
+                    <div class="mb-1">
+                        <label class="form-label">Confirm Password:</label>
+                        <input type="text" class="form-control" id="password" placeholder="Confirm Password">
+                        <span class="text-danger" id="confirmpasswordError"></span>
+                    </div>
+
+                    <!--Message-->
+                    <div class="mb-1">
+                        <label class="form-label">Message:</label>
+                        <textarea class="form-control" rows="3" id="message" placeholder="Your message"></textarea>
+                        <span class="text-danger" id="messageError"></span>
+                    </div>
+
+                    <!--Gender-->
+                    <div class="mb-3">
+                        <label class="form-label">Gender:</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1">
+                            <label class="form-check-label" for="radioDefault1">
+                                Male
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2" checked>
+                            <label class="form-check-label" for="radioDefault2">
+                                Female
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2" checked>
+                            <label class="form-check-label" for="radioDefault2">
+                                Other
+                                <span class="text-danger" id="genderError"></span>
+                            </label>
+                        </div>
+                        </label>
+                    </div>
+                    </label>
+            </div>
+
+            <!--conditions-->
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="checkIndeterminate">
+                <label class="form-check-label" for="checkIndeterminate">
+                    I agree to the terms & conditions
+                    <span class="text-danger" id="conditionsError"></span>
+                </label>
+            </div>
+
+            <!--Submit-->
+            <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
+    <!-- Contact Section End -->
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function validate() {
+            //Get form values
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const mobile = document.getElementById("mobile").value.trim();
+            const password = document.getElementById("password").value.trim();
+            const message = document.getElementById("message").value.trim();
+
+            //Error span
+            const nameError = document.getElementById("nameError").value.trim();
+            const emailError = document.getElementById("emailError").value.trim();
+            const mobilenumberError = document.getElementById("mobilenumberError").value.trim();
+            const confirmpasswordError = document.getElementById("confirmpasswordError").value.trim();
+            const messageError = document.getElementById("messageError").value.trim();
+
+            //clear previous error message
+            nameError.textContent = "";
+            emailError.textContent = "";
+            mobilenumberError.textContent = "";
+            confirmpasswordError.textContent = "";
+            messageError.textContent = "";
+
+            let isValid = true;
+
+            //validate Fields
+            //name validation
+            if (name === "") {
+                nameError.textContent = "Please enter your name";
+                isValid = false;
+            }
+            else if (name.length < 3) {
+                nameError.textContent = "Name must be at least 3 characters";
+                isValid = false;
+            }
+
+            // Email validation
+            if (email === "") {
+                emailError.textContent = "Please enter your email";
+                isValid = false;
+            }
+
+            // Mobile validation
+            if (mobile === "") {
+                mobileError.textContent = "Please enter mobile number";
+                isValid = false;
+            }
+            else if (mobile.length !== 10) {
+                mobileError.textContent = "Mobile number must be 10 digits";
+                isValid = false;
+            }
+
+            // Password validation
+            if (password === "") {
+                passwordError.textContent = "Please enter password";
+                isValid = false;
+            }
+            else if (password.length < 6) {
+                passwordError.textContent = "Password must be at least 6 characters";
+                isValid = false;
+            }
+
+            // Confirm password
+            if (confirmpassword === "") {
+                confirmpasswordError.textContent = "Please confirm password";
+                isValid = false;
+            }
+            else if (password !== confirmpassword) {
+                confirmpasswordError.textContent = "Passwords do not match";
+                isValid = false;
+            }
+
+            // Message validation
+            if (message === "") {
+                messageError.textContent = "Please enter message";
+                isValid = false;
+            }
+
+            // Gender validation
+            if (!gender) {
+                genderError.textContent = "Please select gender";
+                isValid = false;
+            }
+
+            // Terms validation
+            if (!terms) {
+                termsError.textContent = "Please accept terms & conditions";
+                isValid = false;
+            }
+            if (isValid) {
+                alert("Form Submitted Successfully!!")
+            }
+            return isValid;
+        }   
+    </script>
+    </body>
+</html>
